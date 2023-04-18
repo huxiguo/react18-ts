@@ -1,0 +1,15 @@
+# http://editorconfig.org
+
+root = true
+
+[*] # 所有文件适用
+charset = utf-8
+indent_style = tab # 缩进风格 tab space
+indent_size = 2
+end_of_line = lf
+trim_trailing_whitespace = true # 去除尾行空白字符
+insert_final_newline = true
+
+[*.md]
+max_line_length = off
+trim_trailing_whitespace = false
