@@ -1,6 +1,9 @@
 import { memo } from 'react'
 import type { ReactNode } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+
+import { SearchOutlined } from '@ant-design/icons'
+import { Input } from 'antd'
 
 import { HeaderLeft, HeaderRight, HeaderWrapper } from './style'
 
@@ -53,18 +56,19 @@ const AppHeaders: React.FC<IProps> = () => {
 							)
 						})}
 					</div>
-					<Link to={'/discover'}>发现音乐</Link>
-					<Link to={'/mine'}>我的音乐</Link>
-					<Link to={'focus'}>关注</Link>
-					<Link to={'download'}>下载</Link>
 				</HeaderLeft>
 				<HeaderRight>
-					<span>sousuo </span>
+					<Input
+						className="search"
+						placeholder="音乐/视频/电台/用户"
+						prefix={<SearchOutlined />}
+					/>
+					<div className="center">创作者中心</div>
+					<div className="login">登录</div>
 				</HeaderRight>
 			</div>
 			<div className="divider"></div>
 		</HeaderWrapper>
 	)
 }
-
 export default memo(AppHeaders)

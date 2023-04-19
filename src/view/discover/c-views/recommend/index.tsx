@@ -1,23 +1,24 @@
-import myRequest from '@/service'
+import { useAppDispatch } from '@/store'
 import { memo, useEffect } from 'react'
 import type { ReactNode } from 'react'
+import { getBannerDateAction } from './store'
+import TopBanner from './c-cpns/top-banner'
 
 interface IProps {
 	children?: ReactNode
 }
 
 const Recommend: React.FC<IProps> = () => {
+	const dispatch = useAppDispatch()
 	useEffect(() => {
-		myRequest
-			.get({
-				url: '/banner'
-			})
-			.then(res => {
-				console.log('res', res)
-			})
+		dispatch(getBannerDateAction())
 	}, [])
 
-	return <div>Recommend</div>
+	return (
+		<div>
+			<TopBanner />
+		</div>
+	)
 }
 
 export default memo(Recommend)
