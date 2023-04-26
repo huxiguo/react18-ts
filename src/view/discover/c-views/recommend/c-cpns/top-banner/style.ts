@@ -51,6 +51,7 @@ export const BannerRight = styled.a.attrs({
 	background: url(${require('@/assets/img/download.png')});
 `
 export const BannerControl = styled.div`
+	height: 63px;
 	position: absolute;
 	left: 0;
 	right: 0;

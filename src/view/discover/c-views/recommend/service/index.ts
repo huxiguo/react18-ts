@@ -9,3 +9,16 @@ export function getBanner() {
 		url: '/banner'
 	})
 }
+
+/**
+ * 获取热门推荐数据
+ * @returns
+ */
+export function getHotRecommend(limit = 30) {
+	return myRequest.get({
+		url: '/personalized',
+		params: {
+			limit
+		}
+	})
+}
