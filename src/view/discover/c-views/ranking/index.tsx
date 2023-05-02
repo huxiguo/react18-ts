@@ -5,7 +5,7 @@ interface IProps {
 	children?: ReactNode
 }
 const Ranking: React.FC<IProps> = () => {
-	return <div>Ranking</div>
+	return <>123</>
 }
 
 export default memo(Ranking)

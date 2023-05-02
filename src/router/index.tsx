@@ -5,6 +5,7 @@ const Discover = lazy(() => import('@/view/discover'))
 const Download = lazy(() => import('@/view/download'))
 const Focus = lazy(() => import('@/view/focus'))
 const Mine = lazy(() => import('@/view/mine'))
+const Search = lazy(() => import('@/view/search'))
 
 const Album = lazy(() => import('@/view/discover/c-views/album'))
 const Artist = lazy(() => import('@/view/discover/c-views/artist'))
@@ -63,6 +64,10 @@ const route: RouteObject[] = [
 	{
 		path: '/download',
 		element: <Download />
+	},
+	{
+		path: '/search',
+		element: <Search />
 	}
 ]
 export default route

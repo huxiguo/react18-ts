@@ -2,6 +2,8 @@ import { memo } from 'react'
 import type { ReactNode } from 'react'
 import { TopListItemWarpper } from './style'
 import { formatImageUrl } from '@/utils/format'
+import { useAppDispatch } from '@/store'
+import { getCurrentSongAction } from '@/view/player/store'
 
 interface IProps {
 	children?: ReactNode
@@ -10,8 +12,9 @@ interface IProps {
 const TopListItem: React.FC<IProps> = props => {
 	const { itemData } = props
 	const { tracks = [] } = itemData
+	const dispatch = useAppDispatch()
 	const handlePlayClick = (id: number) => {
-		console.log('first', id)
+		dispatch(getCurrentSongAction(id))
 	}
 	return (
 		<TopListItemWarpper>

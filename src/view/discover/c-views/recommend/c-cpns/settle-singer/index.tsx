@@ -32,7 +32,7 @@ const SettleSinger: FC<IProps> = () => {
 				})}
 			</div>
 			<div className="apply-for">
-				<a href="javascript:;">申请成为网易音乐人</a>
+				<a>申请成为网易音乐人</a>
 			</div>
 		</SettleWrapper>
 	)

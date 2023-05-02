@@ -3,14 +3,16 @@ import { useSelector, useDispatch, TypedUseSelectorHook } from 'react-redux'
 
 import counterReducer from './modules/counter'
 import recommendReducer from '@/view/discover/c-views/recommend/store'
+import playerReducer from '@/view/player/store/index'
 const store = configureStore({
 	reducer: {
 		counter: counterReducer,
-		recommend: recommendReducer
+		recommend: recommendReducer,
+		player: playerReducer
 	}
 })
 
-type IRootState = ReturnType<typeof store.getState>
+export type IRootState = ReturnType<typeof store.getState>
 type DispatchType = typeof store.dispatch
 
 export const useAppSelector: TypedUseSelectorHook<IRootState> = useSelector
