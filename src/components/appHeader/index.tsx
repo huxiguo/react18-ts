@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import type { ReactNode } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 import { SearchOutlined } from '@ant-design/icons'
 import { Input } from 'antd'
@@ -18,6 +18,7 @@ interface itemType {
 	link: string
 }
 const AppHeaders: React.FC<IProps> = () => {
+	const navigate = useNavigate()
 	/**
 	 * 不同的导航栏项
 	 * @param item 遍历的item项
@@ -38,6 +39,15 @@ const AppHeaders: React.FC<IProps> = () => {
 				</a>
 			)
 		}
+	}
+
+	/**
+	 * input按下enter回调
+	 * @param e e
+	 */
+	const handleInputEnter = (e: any) => {
+		const value = e.target.value
+		navigate(`/search?keyWord=${value}`)
 	}
 
 	return (
@@ -62,6 +72,7 @@ const AppHeaders: React.FC<IProps> = () => {
 						className="search"
 						placeholder="音乐/视频/电台/用户"
 						prefix={<SearchOutlined />}
+						onPressEnter={handleInputEnter}
 					/>
 					<div className="center">创作者中心</div>
 					<div className="login">登录</div>

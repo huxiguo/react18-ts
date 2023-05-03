@@ -1,23 +1,37 @@
 import { memo } from 'react'
 import type { ReactNode } from 'react'
 import { SongItemWarpper } from './style'
+import { useAppDispatch } from '@/store'
+import { getCurrentSongAction } from '@/view/player/store'
 
 interface IProps {
 	children?: ReactNode
+	itemData: any
 }
-const SongItem: React.FC<IProps> = () => {
+const SongItem: React.FC<IProps> = props => {
+	const { itemData } = props
+	const dispatch = useAppDispatch()
+	const handlePlayBtnClick = (id: number) => {
+		console.log('first', id)
+		dispatch(getCurrentSongAction(id))
+	}
 	return (
 		<>
 			<SongItemWarpper>
 				<div className="td">
 					<div className="hd">
-						<a href="" className="ply"></a>
+						<span
+							className="ply"
+							onClick={() => {
+								handlePlayBtnClick(itemData.id)
+							}}
+						></span>
 					</div>
 				</div>
 				<div className="td w0">
 					<div className="sn">
 						<div className="text">
-							<span className="name">1321312</span>
+							<span className="name">{itemData?.name}</span>
 							<span className="mv"></span>
 						</div>
 					</div>
@@ -32,15 +46,15 @@ const SongItem: React.FC<IProps> = () => {
 				</div>
 				<div className="td w1">
 					<div className="text">
-						<span>456</span>
+						<span>{itemData?.artists[0]?.name}</span>
 					</div>
 				</div>
 				<div className="td w2">
 					<div className="text">
-						<span>《132》</span>
+						<span>《{itemData?.album?.name}》</span>
 					</div>
 				</div>
-				<div className="td">45.12</div>
+				<div className="td">99:99</div>
 			</SongItemWarpper>
 		</>
 	)
