@@ -50,7 +50,6 @@ const AppFooter: FC<IProps> = () => {
 							</a>
 						</span>
 					</div>
-
 				</FooterLeft>
 				<FooterRight className="right">
 					{footerImages.map(item => {
